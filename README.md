@@ -127,6 +127,7 @@ Configuration files and workflow examples for AI coding tools.
 - [awesome-cursorrules](https://github.com/PatrickJS/awesome-cursorrules) - Curated list of Cursor rule files.
 - [Claude Code Memory Files](https://docs.anthropic.com/en/docs/claude-code/memory) - Guide to CLAUDE.md and project memory.
 - [CursorDirectory](https://cursor.directory) - Community-shared Cursor rules and configurations.
+- [Claude Code Starter Configs](claude/) - Ready-to-use CLAUDE.md, rules, hooks, and skills for Claude Code projects.
 - [dotfiles](https://dotfiles.github.io) - Guide to managing dotfiles including agent configurations.
 
 ## Knowledge Graphs and Memory
