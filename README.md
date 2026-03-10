@@ -17,6 +17,7 @@ CLI usage).
 
 - [Agent Frameworks](#agent-frameworks)
 - [Coding Agents](#coding-agents)
+- [Hermes Stack](#hermes-stack)
 - [CLI and TUI Tools](#cli-and-tui-tools)
 - [MCP Ecosystem](#mcp-ecosystem)
 - [Prompt Engineering](#prompt-engineering)
@@ -86,11 +87,14 @@ AI agents that write, review, and debug code.
 - [claude-code-tips](https://github.com/ykdojo/claude-code-tips) - Community-sourced tips and tricks.
 - [Everything Claude Code](https://github.com/affaan-m/everything-claude-code) - Comprehensive Claude Code harness with agent skills, hooks, and multi-language support.
 
-### Hermes Ecosystem Resources
+## Hermes Stack
+
+Hermes Agent runtime, deployment rails, and operator resources.
 
 - [Hermes Agent](https://github.com/NousResearch/hermes-agent) - Open-source autonomous AI agent with CLI, gateway, memory, subagents, and broad tool integrations.
-- [Hermes Agent + hermes-fly Best Practices (this repo)](guides/hermes-agent-hermes-fly-playbook.md) - Practical setup, operations, security, and optimization playbook.
 - [hermes-fly](https://github.com/alexfazio/hermes-fly) - Fly.io deployment and operations CLI for Hermes Agent with deploy, logs, doctor, and teardown workflows.
+- [Hermes Agent + hermes-fly Best Practices (this repo)](guides/hermes-agent-hermes-fly-playbook.md) - Practical setup, operations, security, and optimization playbook.
+- [Hermes Stack Quickstart Recipes (this repo)](guides/hermes-stack-quickstart-recipes.md) - Copy/paste recipes for local dev, hosted production, secure mode, and CI operations.
 
 ## CLI and TUI Tools
 
