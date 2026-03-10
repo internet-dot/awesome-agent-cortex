@@ -36,5 +36,6 @@ jobs:
             --exclude 'https://smithery.ai.*'
             --exclude 'https://cursor.directory.*'
             --exclude 'https://spec.modelcontextprotocol.io.*'
+            --exclude 'https://platform.openai.com/docs/.*'
             README.md guides/**/*.md claude/**/*.md
           fail: true
