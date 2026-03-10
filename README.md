@@ -9,6 +9,10 @@ agents, quantitative trading, and observability. What makes this list unique is
 the combination of practical developer tooling with on-chain identity and memory
 infrastructure — resources no other awesome list brings together.
 
+Note: Some resources are intentionally listed in multiple sections when they are
+core to more than one workflow domain (for example, prompt + eval, or coding +
+CLI usage).
+
 ## Contents
 
 - [Agent Frameworks](#agent-frameworks)
@@ -75,11 +79,11 @@ AI agents that write, review, and debug code.
 ### Claude Code Resources
 
 - [awesome-claude-code](https://github.com/hesreallyhim/awesome-claude-code) - Curated list of Claude Code resources.
-- [Everything Claude Code](https://github.com/affaan-m/everything-claude-code) - Comprehensive Claude Code harness with agent skills, hooks, and multi-language support.
 - [claude-code-tips](https://github.com/ykdojo/claude-code-tips) - Community-sourced tips and tricks.
 - [CLAUDE.md Guide](https://docs.anthropic.com/en/docs/claude-code/memory) - Official documentation on memory files.
 - [Claude Code Hooks](https://docs.anthropic.com/en/docs/claude-code/hooks) - Event-driven shell command automation.
 - [Claude Code Skills](https://docs.anthropic.com/en/docs/claude-code/memory#slash-commands-as-custom-skills) - Reusable prompt-driven workflows.
+- [Everything Claude Code](https://github.com/affaan-m/everything-claude-code) - Comprehensive Claude Code harness with agent skills, hooks, and multi-language support.
 
 ## CLI and TUI Tools
 
@@ -135,8 +139,8 @@ Configuration files and workflow examples for AI coding tools.
 
 - [awesome-cursorrules](https://github.com/PatrickJS/awesome-cursorrules) - Curated list of Cursor rule files.
 - [Claude Code Memory Files](https://docs.anthropic.com/en/docs/claude-code/memory) - Guide to CLAUDE.md and project memory.
-- [CursorDirectory](https://cursor.directory) - Community-shared Cursor rules and configurations.
 - [Claude Code Starter Configs](claude/) - Ready-to-use CLAUDE.md, rules, hooks, and skills for Claude Code projects.
+- [CursorDirectory](https://cursor.directory) - Community-shared Cursor rules and configurations.
 - [dotfiles](https://dotfiles.github.io) - Guide to managing dotfiles including agent configurations.
 
 ## Skill Engineering and Playbooks
@@ -144,9 +148,9 @@ Configuration files and workflow examples for AI coding tools.
 Hands-on resources for designing, testing, and shipping high-quality agent skills.
 
 - [Anthropic: The Complete Guide to Building Skills for Claude (PDF)](https://resources.anthropic.com/hubfs/The-Complete-Guide-to-Building-Skill-for-Claude.pdf) - Canonical end-to-end guide covering structure, triggering, testing, and distribution.
+- [anthropics/skills](https://github.com/anthropics/skills) - Official production-ready skill examples and reference implementations.
 - [Claude Skill Engineering Playbook (this repo)](guides/claude-skill-engineering-playbook.md) - Distilled patterns, anti-patterns, templates, and troubleshooting from the Anthropic guide.
 - [Claude Skills Quickstart Checklist (this repo)](guides/claude-skills-quickstart-checklist.md) - Build-test-ship checklist for repeatable skill quality.
-- [anthropics/skills](https://github.com/anthropics/skills) - Official production-ready skill examples and reference implementations.
 
 ## Knowledge Graphs and Memory
 
