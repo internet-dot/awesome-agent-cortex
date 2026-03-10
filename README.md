@@ -17,6 +17,7 @@ infrastructure — resources no other awesome list brings together.
 - [MCP Ecosystem](#mcp-ecosystem)
 - [Prompt Engineering](#prompt-engineering)
 - [Agent Configs and Dotfiles](#agent-configs-and-dotfiles)
+- [Skill Engineering and Playbooks](#skill-engineering-and-playbooks)
 - [Knowledge Graphs and Memory](#knowledge-graphs-and-memory)
 - [Solana Agent Infrastructure](#solana-agent-infrastructure)
 - [Agent Identity and Wallets](#agent-identity-and-wallets)
@@ -98,13 +99,13 @@ Model Context Protocol servers, clients, and tooling.
 
 - [Awesome MCP Servers](https://github.com/punkpeye/awesome-mcp-servers) - Curated list of MCP server implementations.
 - [mcp](https://github.com/modelcontextprotocol/servers) - Official reference MCP server implementations.
-- [MCP CLI](https://github.com/modelcontextprotocol/cli) - Command-line inspector and debugging tool for MCP.
+- [MCP Inspector](https://github.com/modelcontextprotocol/inspector) - Official inspector and debugging tool for MCP servers.
 - [MCP Go SDK](https://github.com/mark3labs/mcp-go) - Go implementation of the Model Context Protocol.
 - [MCP Python SDK](https://github.com/modelcontextprotocol/python-sdk) - Official Python SDK for building MCP servers.
 - [MCP Rust SDK](https://github.com/modelcontextprotocol/rust-sdk) - Official Rust SDK for building MCP servers.
 - [MCP Spec](https://spec.modelcontextprotocol.io) - Official Model Context Protocol specification.
 - [MCP TypeScript SDK](https://github.com/modelcontextprotocol/typescript-sdk) - Official TypeScript SDK for building MCP servers.
-- [Playwright MCP](https://github.com/anthropics/mcp-playwright) - MCP server for browser automation via Playwright.
+- [Playwright MCP](https://github.com/microsoft/playwright-mcp) - MCP server for browser automation via Playwright.
 - [Smithery](https://smithery.ai) - Registry and hosting platform for MCP servers.
 
 ## Prompt Engineering
@@ -130,6 +131,15 @@ Configuration files and workflow examples for AI coding tools.
 - [Claude Code Starter Configs](claude/) - Ready-to-use CLAUDE.md, rules, hooks, and skills for Claude Code projects.
 - [dotfiles](https://dotfiles.github.io) - Guide to managing dotfiles including agent configurations.
 
+## Skill Engineering and Playbooks
+
+Hands-on resources for designing, testing, and shipping high-quality agent skills.
+
+- [Anthropic: The Complete Guide to Building Skills for Claude (PDF)](https://resources.anthropic.com/hubfs/The-Complete-Guide-to-Building-Skill-for-Claude.pdf) - Canonical end-to-end guide covering structure, triggering, testing, and distribution.
+- [Claude Skill Engineering Playbook (this repo)](guides/claude-skill-engineering-playbook.md) - Distilled patterns, anti-patterns, templates, and troubleshooting from the Anthropic guide.
+- [Claude Skills Quickstart Checklist (this repo)](guides/claude-skills-quickstart-checklist.md) - Build-test-ship checklist for repeatable skill quality.
+- [anthropics/skills](https://github.com/anthropics/skills) - Official production-ready skill examples and reference implementations.
+
 ## Knowledge Graphs and Memory
 
 Agent memory architectures, knowledge graphs, and second-brain integrations.
@@ -143,7 +153,7 @@ Agent memory architectures, knowledge graphs, and second-brain integrations.
 - [Memgraph](https://github.com/memgraph/memgraph) - In-memory graph database for real-time agent queries.
 - [Neo4j](https://github.com/neo4j/neo4j) - Graph database platform widely used for agent knowledge stores.
 - [Obsidian](https://obsidian.md) - Knowledge base and note-taking app usable as agent memory backend.
-- [obsidian-graph-query](https://github.com/catacgc/obsidian-graph-query) - Query and traverse Obsidian vault graphs programmatically.
+- [obsidian-graph-query](https://github.com/azuma520/obsidian-graph-query) - Query and traverse Obsidian vault graphs programmatically.
 - [ODIN](https://github.com/memgraph/odin) - Knowledge graph construction tool built on Memgraph.
 - [Pinecone](https://www.pinecone.io) - Vector database for semantic memory and retrieval.
 - [Qdrant](https://github.com/qdrant/qdrant) - High-performance vector search engine for agent memory.
@@ -154,11 +164,10 @@ Agent memory architectures, knowledge graphs, and second-brain integrations.
 
 Tools and SDKs for building AI agents on Solana.
 
-- [ARC (AI Rig Complex)](https://github.com/ARC-Agency/arc) - Framework for deploying AI agents on Solana.
 - [Awesome Solana AI](https://github.com/solana-foundation/awesome-solana-ai) - Solana Foundation's curated list of AI-Solana projects.
 - [GOAT SDK](https://github.com/goat-sdk/goat) - Open-source toolkit connecting AI agents to 200+ on-chain tools across Solana and EVM chains.
 - [Helius SDK](https://github.com/helius-labs/helius-sdk) - TypeScript SDK for Solana RPC, webhooks, and DAS API.
-- [Jupiter SDK](https://github.com/jup-ag/jupiter-core) - Solana DEX aggregator SDK for agent-driven swaps.
+- [Jupiter Swap API Docs](https://dev.jup.ag/docs/swap-api) - Official documentation for integrating Jupiter routing and swaps.
 - [LangChain Solana Agent Kit](https://github.com/sendaifun/solana-agent-kit) - LangChain tools for Solana agent operations.
 - [Light Protocol](https://github.com/Lightprotocol/light-protocol) - ZK compression for scalable on-chain agent state.
 - [Metaplex](https://github.com/metaplex-foundation/metaplex-program-library) - Solana programs for NFTs and digital assets used in agent identity.
