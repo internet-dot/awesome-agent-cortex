@@ -267,6 +267,7 @@ Agent memory architectures, knowledge graphs, and second-brain integrations.
 
 Tools and SDKs for building AI agents on Solana.
 
+- [Anchor](https://github.com/solana-foundation/anchor) - Core Solana framework for building and integrating smart contracts and clients.
 - [Awesome Solana AI](https://github.com/solana-foundation/awesome-solana-ai) - Solana Foundation's curated list of AI-Solana projects.
 - [GOAT SDK](https://github.com/goat-sdk/goat) - Open-source toolkit connecting AI agents to 200+ on-chain tools across Solana and EVM chains.
 - [Helius SDK](https://github.com/helius-labs/helius-sdk) - TypeScript SDK for Solana RPC, webhooks, and DAS API.
@@ -274,9 +275,13 @@ Tools and SDKs for building AI agents on Solana.
 - [LangChain Solana Agent Kit](https://github.com/sendaifun/solana-agent-kit) - LangChain tools for Solana agent operations.
 - [Light Protocol](https://github.com/Lightprotocol/light-protocol) - ZK compression for scalable on-chain agent state.
 - [Metaplex](https://github.com/metaplex-foundation/metaplex-program-library) - Solana programs for NFTs and digital assets used in agent identity.
+- [Pyth Crosschain](https://github.com/pyth-network/pyth-crosschain) - Oracle infrastructure for low-latency market data used by agent strategies.
 - [Solana Actions](https://github.com/solana-developers/solana-actions) - Spec and tools for blockchain-powered actions and blinks.
 - [Solana Agent Kit](https://github.com/sendaifun/solana-agent-kit) - Toolkit for connecting AI agents to Solana protocols.
+- [Solana Kit](https://github.com/anza-xyz/kit) - Modern Solana client SDK stack for building high-quality applications and agents.
 - [Solana Web3.js](https://github.com/solana-labs/solana-web3.js) - JavaScript SDK for interacting with the Solana blockchain.
+- [Switchboard Solana SDK](https://github.com/switchboard-xyz/solana-sdk) - Verifiable oracle and data-feed SDK for agent decision systems.
+- [Yellowstone gRPC](https://github.com/rpcpool/yellowstone-grpc) - High-throughput real-time Solana data streams for low-latency agents and indexers.
 
 ## Agent Identity and Wallets
 
@@ -284,10 +289,16 @@ On-chain identity, wallets, and trust infrastructure for autonomous AI agents.
 
 - [Coinbase AgentKit](https://github.com/coinbase/agentkit) - Toolkit for giving AI agents programmable wallet capabilities.
 - [Crossmint](https://www.crossmint.com) - Wallet-as-a-service for agent-owned wallets and NFT minting.
+- [EIP-1271](https://eips.ethereum.org/EIPS/eip-1271) - Standard for contract wallet signature validation in dapps and agent auth flows.
+- [EIP-4337](https://eips.ethereum.org/EIPS/eip-4337) - Account abstraction standard enabling programmable smart accounts for agents.
+- [EIP-4361 (SIWE)](https://eips.ethereum.org/EIPS/eip-4361) - Sign-In with Ethereum standard for wallet-based authentication.
+- [EIP-7702](https://eips.ethereum.org/EIPS/eip-7702) - EOA delegation model for temporary smart-account-like behavior.
+- [ERC-7579](https://ercs.ethereum.org/ERCS/erc-7579) - Modular smart account standard for plugin-based permissions and execution.
 - [ERC-8004](https://eips.ethereum.org/EIPS/eip-8004) - Proposed standard for cross-chain agent identity.
 - [Lit Protocol](https://github.com/LIT-Protocol/js-sdk) - Decentralized key management and programmable signing.
 - [Privy](https://www.privy.io) - Embedded wallet infrastructure for agent authentication.
 - [Safe](https://github.com/safe-global/safe-smart-account) - Multi-signature smart account for EVM agent treasuries.
+- [Sign-In With Solana](https://github.com/phantom/sign-in-with-solana) - Wallet-native authentication pattern for Solana apps and agents.
 - [Solana Agent Identity](https://github.com/sendaifun/solana-agent-kit) - Agent wallet and identity features in Solana Agent Kit.
 - [Squads Protocol](https://github.com/Squads-Protocol/v4) - Multisig and smart account protocol for Solana agents.
 - [Turnkey](https://www.turnkey.com) - Secure key infrastructure for programmatic wallet management.
@@ -301,6 +312,9 @@ Payment protocols and infrastructure for autonomous agent transactions.
 - [Coinbase Agentic Wallets](https://www.coinbase.com/developer-platform/discover/launches/agentic-wallets) - Wallet infrastructure for AI agents with programmable spending limits.
 - [Google A2A x402 Extension](https://github.com/google-agentic-commerce/a2a-x402) - Cryptocurrency payments for the Agent-to-Agent protocol via x402.
 - [lobster.cash](https://www.lobster.cash) - Agent payment solution on Solana with Visa Intelligent Commerce integration by Crossmint.
+- [Request Network](https://request.network) - Crypto-native invoicing and payment request rails for agent billing workflows.
+- [Solana Pay](https://solanapay.com) - Open payments standard for Solana-based checkout and transfer flows.
+- [Superfluid](https://superfluid.org) - Streaming payment primitives for machine-to-machine and agent subscriptions.
 - [x402 Foundation](https://www.x402.org) - Open protocol foundation governing the x402 payment standard.
 - [x402 Protocol](https://github.com/coinbase/x402) - Open HTTP payment protocol using the 402 status code for agent-to-service payments.
 
