@@ -30,6 +30,31 @@ submission will be accepted — but we welcome all suggestions.
 - Clear documentation
 - Unique value — not a thin wrapper around another listed project
 
+## Awesome Score Rubric (5-point)
+
+To keep reviews consistent, we score candidate entries from 1 (weak) to 5
+(strong) across five dimensions:
+
+1. **Maintenance**
+   - Recency of commits/releases, issue responsiveness, non-archived status.
+2. **Documentation quality**
+   - Clear README/docs, setup steps, examples, and API usage guidance.
+3. **Production readiness**
+   - Stability signals (tests/CI, real users, operational guidance).
+4. **Unique value**
+   - Adds new capability/coverage vs existing list entries.
+5. **Security posture**
+   - Reasonable security controls/disclosures for its category.
+
+### Suggested acceptance baseline
+
+- Recommended: average score >= 3.5/5
+- Strongly preferred: no individual dimension below 3
+
+In PR descriptions, include a short rubric line, e.g.:
+
+`Awesome Score: Maintenance 4, Docs 5, Production 4, Unique 4, Security 3`
+
 ### What We Reject
 
 - Abandoned or archived projects

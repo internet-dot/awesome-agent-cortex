@@ -1,0 +1,190 @@
+name: Monthly Curation Audit
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 7 1 * *' # 1st of month, 07:00 UTC
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build audit report
+        id: report
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import re, json, urllib.request, urllib.error
+          from datetime import datetime, timezone
+          from pathlib import Path
+
+          REPO = '0xNyk/awesome-agent-cortex'
+          TARGET_MIN = 8
+          STALE_DAYS = 365
+          MAX_LINKS = 140
+          EXCLUDE_DOMAINS = [
+              'reddit.com', 'defillama.com', 'coinbase.com',
+              'smithery.ai', 'cursor.directory', 'platform.openai.com'
+          ]
+
+          readme = Path('README.md').read_text(encoding='utf-8')
+          lines = readme.splitlines()
+
+          # Section counts
+          section = None
+          section_counts = {}
+          link_rows = []
+          for i, l in enumerate(lines, start=1):
+              m = re.match(r'^##\s+(.+)$', l)
+              if m:
+                  section = m.group(1).strip()
+                  if section not in section_counts:
+                      section_counts[section] = 0
+                  continue
+              m = re.match(r'^- \[([^\]]+)\]\((https?://[^\)]+)\) - ', l)
+              if m and section:
+                  section_counts[section] = section_counts.get(section, 0) + 1
+                  link_rows.append((section, m.group(1), m.group(2), i))
+
+          under_target = [(s, c) for s, c in section_counts.items() if c < TARGET_MIN and c > 0]
+
+          # Dead-link sampling (README only, capped)
+          dead = []
+          checked = 0
+          for sec, name, url, line in link_rows[:MAX_LINKS]:
+              if any(d in url for d in EXCLUDE_DOMAINS):
+                  continue
+              checked += 1
+              try:
+                  req = urllib.request.Request(url, method='HEAD', headers={'User-Agent':'Mozilla/5.0'})
+                  with urllib.request.urlopen(req, timeout=8) as r:
+                      code = getattr(r, 'status', 200)
+                  if code >= 400:
+                      dead.append((line, name, url, f'HTTP {code}'))
+              except urllib.error.HTTPError as e:
+                  dead.append((line, name, url, f'HTTP {e.code}'))
+              except Exception as e:
+                  dead.append((line, name, url, str(e)[:80]))
+
+          # Stale repo check (GitHub links only)
+          stale = []
+          now = datetime.now(timezone.utc)
+
+          def gh_repo_from_url(u):
+              m = re.match(r'^https://github\.com/([^/]+)/([^/#?]+)', u)
+              if not m:
+                  return None
+              owner, repo = m.group(1), m.group(2)
+              repo = repo.replace('.git','')
+              # skip obvious non-repo docs pages
+              if repo in ('issues','pulls','tree','blob'):
+                  return None
+              return f'{owner}/{repo}'
+
+          gh_repos = []
+          seen = set()
+          for _,_,url,_ in link_rows:
+              rr = gh_repo_from_url(url)
+              if rr and rr not in seen:
+                  seen.add(rr)
+                  gh_repos.append(rr)
+
+          token = None
+          import os
+          token = os.environ.get('GITHUB_TOKEN')
+
+          def gh_api(path):
+              req = urllib.request.Request(
+                  f'https://api.github.com{path}',
+                  headers={
+                      'User-Agent':'awesome-agent-cortex-audit',
+                      'Authorization': f'Bearer {token}' if token else '',
+                      'Accept':'application/vnd.github+json'
+                  }
+              )
+              with urllib.request.urlopen(req, timeout=12) as r:
+                  return json.loads(r.read().decode('utf-8'))
+
+          for rr in gh_repos[:130]:
+              try:
+                  data = gh_api(f'/repos/{rr}')
+                  pushed = data.get('pushed_at')
+                  archived = data.get('archived', False)
+                  if not pushed:
+                      continue
+                  dt = datetime.fromisoformat(pushed.replace('Z','+00:00'))
+                  age = (now - dt).days
+                  if archived or age > STALE_DAYS:
+                      stale.append((rr, age, archived, data.get('html_url', f'https://github.com/{rr}')))
+              except Exception:
+                  pass
+
+          # Write report
+          today = datetime.utcnow().strftime('%Y-%m-%d')
+          title = f'Monthly curation audit ({today})'
+          out = []
+          out.append(f'# {title}\n')
+          out.append('Automated monthly quality snapshot for Awesome Agent Cortex.\n')
+          out.append('## Summary\n')
+          out.append(f'- Sections scanned: **{len(section_counts)}**')
+          out.append(f'- Entries counted: **{sum(section_counts.values())}**')
+          out.append(f'- Links sampled for availability: **{checked}**')
+          out.append(f'- Potential dead/broken links found: **{len(dead)}**')
+          out.append(f'- Stale/archived GitHub repos found: **{len(stale)}**\n')
+
+          out.append(f'## Sections below target ({TARGET_MIN}+ entries)\n')
+          if under_target:
+              for s,c in sorted(under_target, key=lambda x:x[1]):
+                  out.append(f'- {s}: {c}')
+          else:
+              out.append('- None')
+          out.append('')
+
+          out.append('## Potential dead links (sample)\n')
+          if dead:
+              for line, name, url, err in dead[:20]:
+                  out.append(f'- L{line} [{name}]({url}) — `{err}`')
+          else:
+              out.append('- None in sampled set')
+          out.append('')
+
+          out.append(f'## Stale/archived GitHub repos (>{STALE_DAYS} days or archived)\n')
+          if stale:
+              for rr, age, archived, url in sorted(stale, key=lambda x:x[1], reverse=True)[:25]:
+                  status = 'archived' if archived else f'{age} days since push'
+                  out.append(f'- [{rr}]({url}) — {status}')
+          else:
+              out.append('- None detected in scanned GitHub links')
+          out.append('')
+
+          out.append('## Recommended actions\n')
+          out.append('- [ ] Verify and fix dead links listed above')
+          out.append('- [ ] Review stale projects and remove/replace where needed')
+          out.append('- [ ] Add resources to under-target sections')
+          out.append('- [ ] Run a follow-up quality pass after updates')
+
+          Path('monthly-audit-report.md').write_text('\n'.join(out), encoding='utf-8')
+          Path('monthly-audit-title.txt').write_text(title, encoding='utf-8')
+          print('report generated')
+          PY
+
+      - name: Create issue
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const title = fs.readFileSync('monthly-audit-title.txt', 'utf8').trim();
+            const body = fs.readFileSync('monthly-audit-report.md', 'utf8');
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title,
+              body
+            });
