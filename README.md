@@ -172,11 +172,13 @@ Model Context Protocol servers, clients, and tooling.
 
 ## Prompt Engineering
 
-System prompts, templates, and agent prompt patterns.
+Instruction-writing craft: system prompts, response framing, and reusable prompt templates.
+Focus here on *what to ask and how to phrase it* at the prompt layer.
 
 - [Anthropic Prompt Library](https://docs.anthropic.com/en/prompt-library) - Official prompt examples from Anthropic.
 - [awesome-chatgpt-prompts](https://github.com/f/awesome-chatgpt-prompts) - Collection of prompt examples for ChatGPT.
 - [Claude System Prompts](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering) - Guide to writing effective system prompts.
+- [OpenAI Prompt Engineering Guide](https://platform.openai.com/docs/guides/prompt-engineering) - Official guide to designing reliable prompts and instruction patterns.
 - [DSPy](https://github.com/stanfordnlp/dspy) - Framework for programming with foundation models instead of prompting.
 - [fabric](https://github.com/danielmiessler/fabric) - Framework for augmenting humans using AI with curated prompts.
 - [LangChain Hub](https://smith.langchain.com/hub) - Community-driven prompt and chain sharing platform.
@@ -212,7 +214,8 @@ Harnesses, benchmarks, and evaluation frameworks for measuring agent quality and
 
 ## Context Engineering
 
-Methods and references for designing robust, efficient context pipelines.
+Systems-level context design: memory, retrieval, compression, routing, and long-horizon state management.
+Focus here on *what information the model gets, when, and in what form*.
 
 - [Anthropic: Building Effective Agents](https://www.anthropic.com/engineering/building-effective-agents) - Practical engineering patterns for agent design and execution loops.
 - [Anthropic: Contextual Retrieval](https://www.anthropic.com/engineering/contextual-retrieval) - Retrieval architecture guidance for improving grounding and precision.
@@ -220,7 +223,6 @@ Methods and references for designing robust, efficient context pipelines.
 - [Anthropic: Effective Harnesses for Long-Running Agents](https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents) - Patterns for long-horizon orchestration and reliability.
 - [LangChain: Context Engineering for Agents](https://blog.langchain.com/context-engineering-for-agents/) - Practical taxonomy for writing, selecting, compressing, and isolating context.
 - [Manus: Context Engineering for AI Agents](https://manus.im/blog/Context-Engineering-for-AI-Agents-Lessons-from-Building-Manus) - Practitioner lessons from building production autonomous workflows.
-- [OpenAI Prompt Engineering Guide](https://platform.openai.com/docs/guides/prompt-engineering) - Official prompt and instruction design guidance.
 - [OpenAI Evals Guide](https://platform.openai.com/docs/guides/evals) - Official framework for building eval loops and quality gates.
 - [OpenAI Cookbook: Getting Started with Evals](https://developers.openai.com/cookbook/examples/evaluation/getting_started_with_openai_evals) - Practical eval setup walkthrough.
 - [RAG (Lewis et al., 2020)](https://arxiv.org/abs/2005.11401) - Foundational retrieval-augmented generation paper.
