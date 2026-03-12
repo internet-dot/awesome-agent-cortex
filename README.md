@@ -241,7 +241,7 @@ Harnesses, benchmarks, and evaluation frameworks for measuring agent quality and
 
 Deep-dive reading map organized by the major categories in this repository.
 
-- [ArXiv Deep Research Map (this repo)](guides/arxiv-deep-research-map.md) - Curated paper paths across agent frameworks, coding agents, MCP/tool use, eval reliability, context/memory, security, multimodal, quant, and on-chain/DeFi-adjacent research.
+- [ArXiv Deep Research Map (this repo)](guides/arxiv-deep-research-map.md) - Curated paper paths with per-category must-reads, a recent watchlist, and a monthly refresh workflow across frameworks, coding, MCP/tool use, eval reliability, memory, security, multimodal, quant, and on-chain/DeFi-adjacent research.
 
 ## Context Engineering
 
